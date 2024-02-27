@@ -72,6 +72,16 @@
             color: red;
             margin-top: 5px;
         }
+
+        .remove-button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
     </style>
 </head>
 
@@ -104,6 +114,13 @@
             var taskList = document.getElementById('taskList');
             var li = document.createElement('li');
             li.textContent = taskName;
+            var button = document.createElement('button');
+            button.textContent = 'Remove';
+            button.className = 'remove-button';
+            button.addEventListener('click', function () {
+                li.remove();
+            });
+            li.appendChild(button);
             taskList.appendChild(li);
         }
 
